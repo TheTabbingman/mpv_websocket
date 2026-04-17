@@ -40,7 +40,7 @@ local function find_mpv_socket(config_file_path)
   file:close()
 
   if not mpv_socket then
-    error("input-ipc-server option does not exist in `" .. config_file_path .. "`")
+    -- error("input-ipc-server option does not exist in `" .. config_file_path .. "`")
   end
 
   return mpv_socket
@@ -55,7 +55,7 @@ local function start_websocket()
   local args = {
     mpv_websocket_path,
     "-m",
-    mpv_socket,
+    "/tmp/mpv-socket",
     "-w",
     "6677",
   }
